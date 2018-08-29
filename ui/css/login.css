@@ -1,0 +1,40 @@
+body {
+    background-color:#fff;
+    -webkit-font-smoothing: antialiased;
+    font: normal 14px Roboto,arial,sans-serif;
+    background-image: url('../images/bg1.jpg');
+    background-size:cover;
+  background-repeat: no-repeat;
+  /* background-position:center; */
+  width: 100%;
+
+  }
+  .no-margin{
+      margin-left: 0px !important;
+      margin-right:0px !important;
+  }
+  .loginheader{
+
+  }
+  .fright{
+      float:right;
+  }
+  .container {
+    /* width: 50%; */
+    margin: 0 auto;
+    /* border: 9px solid; */
+    margin-top: 10%;
+   }
+.custom_class{
+    width: 24%;
+}
+  .form-control {
+      border-radius: 10px;
+  }
+  
+  .wrapper {
+      text-align: center;
+  }
+  .buuton-color{
+    background-color: #8064A2 !important
+  }

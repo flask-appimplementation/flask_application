@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div class="container inline custom_class">
+        <div class="row no-margin">
+            <h1 class="text-center">Login</h1>
+        </div>
+        <div class="row no-margin">
+            <form class='form-horizontal'>
+                <div class="form-group">
+                    <input class='form-control' id="email" type="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <input class='form-control' id="pswd" type="password" placeholder="Enter password">
+
+                </div>
+            </form>
+        </div>
+        <div class="row no-margin">
+            <a href="forgotpassword.html">Forgot password</a>
+            <input type=button onClick="location.href='signup.html'" class="btn btn-primary  btn-sm buuton-color" value='signup'>
+            <button type="button" id="submitbutton" class="btn btn-primary btn-sm pull-right buuton-color">Login</button>
+
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#submitbutton").click(function (e) {
+                    // console.log($('form').serializeArray());
+                    var pword = $("#pswd").val();
+                    var email = $("#email").val();
+                    var doc = { email:email, password: pword };
+                    doc = JSON.stringify(doc);
+                    console.log(doc);
+                    $.ajax({
+                        url: "http://127.0.0.1:5000/login",
+                        data: doc,
+                        type: 'POST',
+                        contentType: "application/json",
+                        success: function (data) {
+                            alert("message: " + "Successfully logged in  ");
+                            if (data) {
+                                console.log("data send to api successfully")
+                            }
+                        },
+                        error: function (err, text, jqXHR) {
+                            $("#div1").load("0000000000000000000");
+                            console.log(err, text, jqXHR);
+                        }
+                    });
+                    // e.stopImmediatePropagation();
+                    // $(e.target).addClass('disabled')
+                    return false;
+                })
+            })
+
+        </script>
+
+</body>
+
+</html>
